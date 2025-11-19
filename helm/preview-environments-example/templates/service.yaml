@@ -4,6 +4,7 @@ metadata:
   name: {{ include "preview-environments-example.fullname" . }}
   labels:
     {{- include "preview-environments-example.labels" . | nindent 4 }}
+  namespace: {{ .Release.Namespace }}
 spec:
   type: {{ .Values.service.type }}
   ports:
