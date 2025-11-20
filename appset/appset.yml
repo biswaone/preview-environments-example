@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: preview-environments-example
+spec:
+  generators:
+    - pullRequest:
+        github:
+          owner: biswaone
+          repo: preview-environments-example
+          labels:
+            - preview
+        requeueAfterSeconds: 180
+  template:
+    metadata:
+      name: 'preview-{{number}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/biswaone/preview-environments-example'
+        targetRevision: '{{head_sha}}'
+        path: helm/preview-environments-example
+        helm:
+          parameters:
+            - name: image.repository
+              value: 'ghcr.io/biswaone/preview-environments-example'
+
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: 'preview-{{number}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+
