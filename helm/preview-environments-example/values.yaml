@@ -5,7 +5,7 @@ image:
   repository: ghcr.io/biswaone/preview-environments-example
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "049598b8"
+  tag: "a316ab08074476152c20a6e08dacf0e04b65412c"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
