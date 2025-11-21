@@ -5,7 +5,7 @@ image:
   repository: ghcr.io/biswaone/preview-environments-example
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "fb029cb784d1988b6cf1616d19f6da85d8135b8d"
+  tag: "a83363854b6a54bef112ec101814257d14c31dc7"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -32,5 +32,5 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
 ingress:
   enabled: true
-  class:  nginx
-  host:   ""
+  class: nginx
+  host: ""
