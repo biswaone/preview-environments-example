@@ -25,7 +25,7 @@ spec:
             - name: image.repository
               value: 'ghcr.io/biswaone/preview-environments-example'
             - name: ingress.host
-              value: pr-{{branch}}.{{configMap.cluster-config.minikubeIp | replace "." "-"}}.nip.io
+              value: pr-{{branch}}.<minikube-ip>.nip.io
 
       destination:
         server: 'https://kubernetes.default.svc'
